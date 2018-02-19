@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C4E3FDFAC7BB0925207AAF84 /* Pods_Movie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AF3B4DA68F51B31658A3AA /* Pods_Movie.framework */; };
 		F9C8748A2038A66000C4D1E3 /* MoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874892038A66000C4D1E3 /* MoAPI.swift */; };
-		F9C874972039D8E000C4D1E3 /* TMDBApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874942039D8E000C4D1E3 /* TMDBApiManager.swift */; };
+		F9C874972039D8E000C4D1E3 /* TMDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874942039D8E000C4D1E3 /* TMDBApi.swift */; };
 		F9C874982039D8E000C4D1E3 /* TMDBObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874962039D8E000C4D1E3 /* TMDBObject.swift */; };
 		F9C8749A2039D8FE00C4D1E3 /* MoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874992039D8FE00C4D1E3 /* MoObject.swift */; };
 		F9C8749D2039DC1200C4D1E3 /* TMDBMovieGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C8749C2039DC1200C4D1E3 /* TMDBMovieGenre.swift */; };
@@ -18,6 +18,10 @@
 		F9C874A32039DEE500C4D1E3 /* TMDBMovieProductionContries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874A22039DEE500C4D1E3 /* TMDBMovieProductionContries.swift */; };
 		F9C874A52039DFE400C4D1E3 /* TMDBMovieProductionCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874A42039DFE400C4D1E3 /* TMDBMovieProductionCountry.swift */; };
 		F9C874A82039E56500C4D1E3 /* TMDBCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874A72039E56500C4D1E3 /* TMDBCast.swift */; };
+		F9C874AA2039E84A00C4D1E3 /* TMDBGenresRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874A92039E84A00C4D1E3 /* TMDBGenresRequest.swift */; };
+		F9C874AC2039EBEE00C4D1E3 /* TMDBApiRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874AB2039EBEE00C4D1E3 /* TMDBApiRequestType.swift */; };
+		F9C874AE203A139500C4D1E3 /* TMDBDiscoverRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874AD203A139500C4D1E3 /* TMDBDiscoverRequest.swift */; };
+		F9C874B0203A1ACE00C4D1E3 /* MoRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C874AF203A1ACE00C4D1E3 /* MoRealmManager.swift */; };
 		F9FB8A13203897730010F59E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB8A12203897730010F59E /* AppDelegate.swift */; };
 		F9FB8A18203897730010F59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FB8A16203897730010F59E /* Main.storyboard */; };
 		F9FB8A1A203897730010F59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FB8A19203897730010F59E /* Assets.xcassets */; };
@@ -29,7 +33,7 @@
 		46A5EEC01194F5E4BA5675FC /* Pods-Movie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movie/Pods-Movie.debug.xcconfig"; sourceTree = "<group>"; };
 		8F8B75BB92C187399F1B7908 /* Pods-Movie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movie/Pods-Movie.release.xcconfig"; sourceTree = "<group>"; };
 		F9C874892038A66000C4D1E3 /* MoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoAPI.swift; sourceTree = "<group>"; };
-		F9C874942039D8E000C4D1E3 /* TMDBApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBApiManager.swift; sourceTree = "<group>"; };
+		F9C874942039D8E000C4D1E3 /* TMDBApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBApi.swift; sourceTree = "<group>"; };
 		F9C874962039D8E000C4D1E3 /* TMDBObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBObject.swift; sourceTree = "<group>"; };
 		F9C874992039D8FE00C4D1E3 /* MoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoObject.swift; sourceTree = "<group>"; };
 		F9C8749B2039D90E00C4D1E3 /* Movie-BringingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movie-BringingHeader.h"; sourceTree = "<group>"; };
@@ -39,6 +43,10 @@
 		F9C874A22039DEE500C4D1E3 /* TMDBMovieProductionContries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieProductionContries.swift; sourceTree = "<group>"; };
 		F9C874A42039DFE400C4D1E3 /* TMDBMovieProductionCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieProductionCountry.swift; sourceTree = "<group>"; };
 		F9C874A72039E56500C4D1E3 /* TMDBCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCast.swift; sourceTree = "<group>"; };
+		F9C874A92039E84A00C4D1E3 /* TMDBGenresRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBGenresRequest.swift; sourceTree = "<group>"; };
+		F9C874AB2039EBEE00C4D1E3 /* TMDBApiRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBApiRequestType.swift; sourceTree = "<group>"; };
+		F9C874AD203A139500C4D1E3 /* TMDBDiscoverRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBDiscoverRequest.swift; sourceTree = "<group>"; };
+		F9C874AF203A1ACE00C4D1E3 /* MoRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoRealmManager.swift; sourceTree = "<group>"; };
 		F9FB8A0F203897730010F59E /* Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FB8A12203897730010F59E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FB8A17203897730010F59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +87,7 @@
 		F9C874852038A59300C4D1E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F9C874AF203A1ACE00C4D1E3 /* MoRealmManager.swift */,
 				F9C874992039D8FE00C4D1E3 /* MoObject.swift */,
 				F9C874892038A66000C4D1E3 /* MoAPI.swift */,
 				F9C874932039D8E000C4D1E3 /* TMDB */,
@@ -89,7 +98,10 @@
 		F9C874932039D8E000C4D1E3 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
-				F9C874942039D8E000C4D1E3 /* TMDBApiManager.swift */,
+				F9C874942039D8E000C4D1E3 /* TMDBApi.swift */,
+				F9C874AB2039EBEE00C4D1E3 /* TMDBApiRequestType.swift */,
+				F9C874A92039E84A00C4D1E3 /* TMDBGenresRequest.swift */,
+				F9C874AD203A139500C4D1E3 /* TMDBDiscoverRequest.swift */,
 				F9C874952039D8E000C4D1E3 /* IMDBObjects */,
 			);
 			path = TMDB;
@@ -286,17 +298,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C874AC2039EBEE00C4D1E3 /* TMDBApiRequestType.swift in Sources */,
 				F9C8748A2038A66000C4D1E3 /* MoAPI.swift in Sources */,
 				F9C8749A2039D8FE00C4D1E3 /* MoObject.swift in Sources */,
 				F9C8749F2039DE4600C4D1E3 /* TMDBMovie.swift in Sources */,
 				F9C874982039D8E000C4D1E3 /* TMDBObject.swift in Sources */,
+				F9C874AE203A139500C4D1E3 /* TMDBDiscoverRequest.swift in Sources */,
 				F9C8749D2039DC1200C4D1E3 /* TMDBMovieGenre.swift in Sources */,
+				F9C874B0203A1ACE00C4D1E3 /* MoRealmManager.swift in Sources */,
 				F9C874A82039E56500C4D1E3 /* TMDBCast.swift in Sources */,
 				F9C874A52039DFE400C4D1E3 /* TMDBMovieProductionCountry.swift in Sources */,
-				F9C874972039D8E000C4D1E3 /* TMDBApiManager.swift in Sources */,
+				F9C874972039D8E000C4D1E3 /* TMDBApi.swift in Sources */,
 				F9FB8A13203897730010F59E /* AppDelegate.swift in Sources */,
 				F9C874A32039DEE500C4D1E3 /* TMDBMovieProductionContries.swift in Sources */,
 				F9C874A12039DEE400C4D1E3 /* TMDBMovieProductionCompany.swift in Sources */,
+				F9C874AA2039E84A00C4D1E3 /* TMDBGenresRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

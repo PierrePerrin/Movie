@@ -16,17 +16,18 @@ class TMDBMovie: TMDBObject {
     @objc dynamic var original_title : String? = nil
     @objc dynamic var original_language : String? = nil
     @objc dynamic var overview : String? = nil
-    @objc dynamic var release_date = -1
+    @objc dynamic var release_date : String? = nil
     @objc dynamic var status : String? = nil
     @objc dynamic var tagline : String? = nil
     @objc dynamic var video : Bool = false
+    let genre_ids = List<Int>()
     
     @objc dynamic var runtime = -1
     @objc dynamic var revenue = -1
     @objc dynamic var budget = -1
 
-    @objc dynamic var popularity = -1
-    @objc dynamic var vote_average = -1
+    @objc dynamic var popularity = -1.0
+    @objc dynamic var vote_average = -1.0
     @objc dynamic var vote_count = -1
     
     //Medias
@@ -38,4 +39,5 @@ class TMDBMovie: TMDBObject {
     let production_countries = List<TMDBMovieProductionCountry>()
     let production_companies = List<TMDBMovieProductionCompany>()
     let spoken_languages = List<TMDBMovieSpokenLanguage>()
+    let casts = List<TMDBCast>()
 }

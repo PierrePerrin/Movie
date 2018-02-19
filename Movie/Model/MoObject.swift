@@ -9,7 +9,5 @@
 
 class MoObject: Object {
 
-    class var api : MoAPI?{
-        return nil
-    }
+
 }

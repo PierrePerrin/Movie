@@ -13,5 +13,6 @@
 #import <Alamofire/Alamofire-Swift.h>
 #import <AlamofireImage/AlamofireImage-Swift.h>
 #import <RealmSwift/RealmSwift-Swift.h>
+#import <Realm/Realm.h>
 
 #endif /* Movie_BringingHeader_h */

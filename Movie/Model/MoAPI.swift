@@ -26,7 +26,7 @@ struct MoAPI{
                      method:HTTPMethod = .get,
                      parameters:Parameters,
                      useApiKey:Bool=true,
-                     headers: HTTPHeaders? = nil) -> Request{
+                     headers: HTTPHeaders? = nil) -> DataRequest{
         
         let url = self.hostUrl + path
         var parameters = parameters
@@ -39,6 +39,7 @@ struct MoAPI{
             parameters[key] = apiKey
         }
         
+        NSLog("\n###\n  Making Request with URL %@ \n   Parameters %@\n###\n\n", url,parameters)
         //Uses Alamofire to perform the request
         let request = Alamofire.request(url, method: method, parameters: parameters, headers: headers)
         return request
