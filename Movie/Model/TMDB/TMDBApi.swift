@@ -7,12 +7,18 @@
 //
 
 
+private let instance = TMDBApiManager()
 class TMDBApiManager :NSObject{
     
     var apisCache = [String:TMDBApiRequestType]()
     
-    static let `default` = {return TMDBApiManager()}()
+    class var `default` : TMDBApiManager {return instance}
     
+    private var isInitilized:Bool = false
+    func initialize(){
+        updateConfigurations()
+        updateMoviesGenres()
+    }
     /// The TMDB Api manager
     let api : MoAPI = {
         
@@ -23,13 +29,31 @@ class TMDBApiManager :NSObject{
     }()
     
     func api<T : TMDBApiRequestType>(ofType type: T.Type) -> T? {
+        if !isInitilized{
+            isInitilized = true
+            self.initialize()
+        }
+        
         let stringType = String(describing: type)
         guard let object = apisCache[stringType] else{
-        
+            
             let object = T.init()
             apisCache[stringType] = object
             return object
         }
         return object as? T
     }
+    
+    func updateMoviesGenres(){
+        api(ofType: TMDBGenresRequest.self)?.performRequest()
+    }
+    
+    func updateConfigurations(){
+        api(ofType: TMDBConfigRequest.self)?.performRequest()
+    }
+    
+    func resquestForMoreMovies(){
+        api(ofType: TMDBDiscoverRequest.self)?.performRequest()
+    }
 }
+

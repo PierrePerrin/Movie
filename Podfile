@@ -9,6 +9,7 @@ target 'Movie' do
     pod "Alamofire"
     pod "AlamofireImage"
     pod "ShadowView"
+    pod "SwifterSwift"
   # Pods for Movie
 
 end

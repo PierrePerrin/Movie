@@ -63,10 +63,14 @@ class TMDBApiRequestType : NSObject{
             return
         }
         
-        if let values = response[responseKey] as? [Any]{
+        if var values = response[responseKey]{
+            
+            if !(values is [Any]){
+                values = [values]
+            }
             
             let realm = MoRealmManager.default.realm
-            for value in values{
+            for value in (values as? [Any]) ?? []{
                 
                 realm?.beginWrite()
                 let _ = realm?.create(self.responseObjectType, value: value, update: true)

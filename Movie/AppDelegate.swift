@@ -3,50 +3,47 @@
 //  Movie
 //
 //  Created by Pierre Perrin on 17/02/2018.
-//  Copyright © 2018 PierrePerrin. All rights reserved.
+//Copyright © 2018 PierrePerrin. All rights reserved.
 //
 
 import UIKit
 
+let FlymingoImageCache = AutoPurgingImageCache(
+    memoryCapacity: 100 * 1024 * 1024,
+    preferredMemoryUsageAfterPurge: 20 * 1024 * 1024
+)
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let imageDownloader = ImageDownloader(
+        configuration: ImageDownloader.defaultURLSessionConfiguration(),
+        downloadPrioritization: .fifo,
+        maximumActiveDownloads: 4,
+        imageCache: AutoPurgingImageCache()
+    )
+    
     var window: UIWindow?
     var notificationToken: NotificationToken? = nil
+    
+    func initializeAlamofireImage(){
+        
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.urlCache = URLCache.init(memoryCapacity:100 * 1024 * 1024, diskCapacity:200 * 1024 * 1024, diskPath:nil)
+        UIImageView.af_sharedImageDownloader = ImageDownloader.init(sessionManager: SessionManager.init(configuration: sessionConfiguration), downloadPrioritization: ImageDownloader.DownloadPrioritization.lifo, maximumActiveDownloads: 5, imageCache: FlymingoImageCache)
+        
+        DataRequest.addAcceptableImageContentTypes(["application/media"])
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
-        TMDBApiManager.default.api(ofType: TMDBDiscoverRequest.self)?.performRequest()
-        TMDBApiManager.default.api(ofType: TMDBDiscoverRequest.self)?.performRequest()
-        TMDBApiManager.default.api(ofType: TMDBDiscoverRequest.self)?.performRequest()
-        TMDBApiManager.default.api(ofType: TMDBDiscoverRequest.self)?.performRequest()
         
-        if let movieResults = mo_getObjects(forType: TMDBMovie.self){
-         
-           notificationToken =  movieResults.observe({ [weak self] (changes: RealmCollectionChange) in
-                
-            switch changes {
-            case .initial:
-                // Results are now populated and can be accessed without blocking the UI
-                break
-            case .update(_, let deletions, let insertions, let modifications):
-                // Query results have changed, so apply them to the UITableView
-                break
-            case .error(let error):
-                // An error occurred while opening the Realm file on the background worker thread
-                fatalError("\(error)")
-            }
-            })
-        }
-        
-        
-        
+        self.initializeAlamofireImage()
+        TMDBApiManager.default.resquestForMoreMovies()
         return true
     }
     
-    func updateMoviesGenres(){
-        TMDBApiManager.default.api(ofType: TMDBGenresRequest.self)?.performRequest()
-    }
+  
 }
 
